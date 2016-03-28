@@ -17,19 +17,20 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ItemListActivity extends AppCompatActivity {
+public class ItemListActivity extends BaseDrawerActivity {
 
     private boolean mTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_list);
-
+        getLayoutInflater().inflate(R.layout.activity_item_list, frame);
+        //setContentView(R.layout.activity_item_list);
+/*
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
-
+*/
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

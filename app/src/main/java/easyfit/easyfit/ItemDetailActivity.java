@@ -14,12 +14,13 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
 
-public class ItemDetailActivity extends AppCompatActivity {
+public class ItemDetailActivity extends BaseDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_detail);
+        getLayoutInflater().inflate(R.layout.activity_item_detail, frame);
+     //   setContentView(R.layout.activity_item_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
