@@ -7,10 +7,13 @@ import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.content.SharedPreferences;
 import android.app.Activity;
 import android.widget.ToggleButton;
+
+import org.w3c.dom.Text;
 
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
@@ -26,22 +29,25 @@ public class CreationProfile extends AppCompatActivity {
 
     public Profile userAccount;
 
+    protected SharedPreferences settings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         final String PREFS_NAME = "MyPrefsFile";
 
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        settings = getSharedPreferences(PREFS_NAME, 0);
 
        // if (settings.getBoolean("my_first_time", true)) {
-            //the app is being launched for first time, do something
+
             setContentView(R.layout.activity_creation_profile);
 
             startLayout = (LinearLayout) findViewById(R.id.startLayout);
             objectifLayout = (LinearLayout) findViewById(R.id.ObjectiveMenu);
 
             userAccount = new Profile();
+            loadProfile();
 
             final CheckBox chooseObjectif = (CheckBox) findViewById(R.id.checkBox);
             chooseObjectif.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +82,7 @@ public class CreationProfile extends AppCompatActivity {
         objectifLayout.setVisibility(View.VISIBLE);
         for (int i=0; i<idArray.length; i++) {
             final int b = i;
-            btObj [b] = (CheckBox)findViewById(idArray[b]); // Fetch the view id from array
+            btObj [b] = (CheckBox)findViewById(idArray[b]);
             btObj [b].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -95,6 +101,40 @@ public class CreationProfile extends AppCompatActivity {
     protected void launchApplication(){
         Intent launcher = new Intent(CreationProfile.this, ItemListActivity.class);
         startActivity(launcher);
+    }
+
+    protected void saveProfile(){
+        EditText name = (EditText) findViewById(R.id.nameEdit);
+        EditText age = (EditText) findViewById(R.id.ageEdit);
+        EditText poids = (EditText) findViewById(R.id.poidsEdit);
+        EditText mail = (EditText) findViewById(R.id.mailEdit);
+        EditText taille = (EditText) findViewById(R.id.sizeEdit);
+
+        userAccount.setName(name.getText().toString());
+        userAccount.setMail(mail.getText().toString());
+        userAccount.setAge(Integer.parseInt(age.getText().toString()));
+        userAccount.setPoids(Integer.parseInt(poids.getText().toString()));
+        userAccount.setTaille(Float.parseFloat(taille.getText().toString()));
+
+        settings.edit().putString("name", userAccount.getName());
+        settings.edit().putString("mail", userAccount.getMail());
+        settings.edit().putInt("age", userAccount.getAge());
+        settings.edit().putInt("poids", userAccount.getPoids());
+        settings.edit().putFloat("taille", userAccount.getTaille());
+    }
+
+    protected void loadProfile(){
+        EditText name = (EditText) findViewById(R.id.nameEdit);
+        EditText age = (EditText) findViewById(R.id.ageEdit);
+        EditText poids = (EditText) findViewById(R.id.poidsEdit);
+        EditText mail = (EditText) findViewById(R.id.mailEdit);
+        EditText taille = (EditText) findViewById(R.id.sizeEdit);
+
+        name.setText(settings.getString("name", ""));
+        age.setText(settings.getInt("age", 0));
+        poids.setText(settings.getInt("poids", 0));
+        mail.setText(settings.getString("mail",""));
+        taille.setText(String.valueOf(settings.getFloat("taille", 0)));
     }
 
 }

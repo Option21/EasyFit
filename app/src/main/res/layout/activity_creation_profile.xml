@@ -52,7 +52,7 @@
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText"
+                    android:id="@+id/nameEdit"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="0dp" />
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText5" />
+                    android:id="@+id/ageEdit" />
 
             </LinearLayout>
 
@@ -96,10 +96,10 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/editText3"
-            android:layout_below="@+id/editText"
-            android:layout_alignLeft="@+id/editText"
-            android:layout_alignStart="@+id/editText"
+            android:id="@+id/mailEdit"
+            android:layout_below="@+id/nameEdit"
+            android:layout_alignLeft="@+id/nameEdit"
+            android:layout_alignStart="@+id/nameEdit"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
             android:autoText="false" />
@@ -128,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
-                    android:id="@+id/editText2" />
+                    android:id="@+id/sizeEdit" />
 
             </LinearLayout>
 
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/editText4" />
+                    android:id="@+id/poidsEdit" />
             </LinearLayout>
         </LinearLayout>
 
