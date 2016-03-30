@@ -59,7 +59,6 @@ public class Chrono extends BaseDrawerActivity {
 
         c = (Chronometer)findViewById(R.id.c);
 
-
     }
 
     private long getTime(Chronometer c) {
@@ -68,16 +67,13 @@ public class Chrono extends BaseDrawerActivity {
         String array[] = ChronoText.split(":");
         if(array.length == 2) {
             stoppedMilli = Integer.parseInt(array[0]) * 60 * 1000 + Integer.parseInt(array[1]) * 1000;
-
         }
         else if(array.length == 3) {
             stoppedMilli = Integer.parseInt(array[0]) * 60 *60 * 1000
                     + Integer.parseInt(array[1]) * 60 * 1000
                     + Integer.parseInt(array[2]) * 1000;
         }
-
         return stoppedMilli;
-
     }
 
 

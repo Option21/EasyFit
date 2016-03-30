@@ -34,10 +34,16 @@ public class ItemDetailFragment extends Fragment {
             {
                 toolbar.setTitle(mItem.content);
             }
+            Toolbar toolbar1 = (Toolbar) activity.findViewById(R.id.detail_toolbar);
+            if(toolbar1 != null)
+            {
+                toolbar1.setTitle(mItem.titre);
+            }
+            /*
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.content);
-            }
+            }*/
         }
     }
 
