@@ -195,7 +195,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        android:id="@+id/ObjectiveMenu">
+        android:id="@+id/ObjectiveMenu"
+        android:focusableInTouchMode="false">
 
         <TextView
             android:layout_width="wrap_content"

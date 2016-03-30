@@ -50,7 +50,8 @@
             android:label="@string/title_activity_base_drawer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".CreationProfile"></activity>
+        <activity android:name=".CreationProfile"
+            android:label="CreationProfile"></activity>
     </application>
 
 </manifest>
