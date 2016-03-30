@@ -27,12 +27,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="easyfit.easyfit.ItemListActivity" />
         </activity>
+
         <activity
             android:name=".BaseDrawerActivity"
             android:label="@string/title_activity_base_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        </activity>
+        <activity android:name=".CreationProfile"></activity>
     </application>
 
 </manifest>
