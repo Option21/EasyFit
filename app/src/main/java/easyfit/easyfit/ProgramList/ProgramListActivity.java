@@ -1,81 +1,59 @@
-package easyfit.easyfit;
+package easyfit.easyfit.ProgramList;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-
 import java.util.List;
 
-public class ItemListActivity extends BaseDrawerActivity {
+import easyfit.easyfit.BaseDrawerActivity;
+import easyfit.easyfit.ProgramList.ProgramDetailActivity;
+import easyfit.easyfit.ProgramList.ProgramDetailFragment;
+import easyfit.easyfit.ProgramList.ProgramListProg;
+import easyfit.easyfit.R;
+
+
+public class ProgramListActivity extends BaseDrawerActivity {
 
     private boolean mTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.activity_item_list, frame);
-        //setContentView(R.layout.activity_item_list);
-/*
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(getTitle());
-*/
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "Sujet");
-                i.putExtra(Intent.EXTRA_TEXT   , "...");
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    throw  ex;
-                }
-                Snackbar.make(view, "Loading Mail...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        getLayoutInflater().inflate(R.layout.program_item_list, frame);
 
-        View recyclerView = findViewById(R.id.item_list);
+        View recyclerView = findViewById(R.id.frameLayoutProg);
         assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
 
-        if (findViewById(R.id.item_detail_container) != null) {
+        if (findViewById(R.id.program_detail_container) != null) {
             mTwoPane = true;
         }
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(ItemListExercice.ITEMS));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(ProgramListProg.ITEMS));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<ItemListExercice.Exercices> mValues;
+        private final List<ProgramListProg.Exercices> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<ItemListExercice.Exercices> items) {
+        public SimpleItemRecyclerViewAdapter(List<ProgramListProg.Exercices> items) {
             mValues = items;
         }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_list_content, parent, false);
+                    .inflate(R.layout.program_list_content, parent, false);
             return new ViewHolder(view);
         }
 
@@ -90,16 +68,16 @@ public class ItemListActivity extends BaseDrawerActivity {
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putString(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                        ItemDetailFragment fragment = new ItemDetailFragment();
+                        arguments.putString(ProgramDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        ProgramDetailFragment fragment = new ProgramDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.item_detail_container, fragment)
+                                .replace(R.id.program_detail_container, fragment)
                                 .commit();
                     } else {
                         Context context = v.getContext();
-                        Intent intent = new Intent(context, ItemDetailActivity.class);
-                        intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        Intent intent = new Intent(context, ProgramDetailActivity.class);
+                        intent.putExtra(ProgramDetailFragment.ARG_ITEM_ID, holder.mItem.id);
                         intent.putExtra("posExo",position);
                         context.startActivity(intent);
                     }
@@ -116,7 +94,7 @@ public class ItemListActivity extends BaseDrawerActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public ItemListExercice.Exercices mItem;
+            public ProgramListProg.Exercices mItem;
 
             public ViewHolder(View view) {
                 super(view);
