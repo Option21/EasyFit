@@ -96,8 +96,9 @@ public class BaseDrawerActivity extends AppCompatActivity
             startActivity(new Intent(this, ItemListActivity.class));
         } else if (id == R.id.nav_timer) {
             startActivity(new Intent(this, Chrono.class));
+        }else if(id == R.id.profile) {
 
-        } else if (id == R.id.nav_send) {
+        }else if (id == R.id.nav_send) {
             Intent i = new Intent(Intent.ACTION_SEND);
             i.setType("message/rfc822");
             i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
