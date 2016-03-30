@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="easyfit.easyfit.ItemDetailActivity"
+    tools:context=".Exercices.ItemDetailActivity"
     tools:ignore="MergeRootFrame">
 
     <android.support.design.widget.AppBarLayout
@@ -46,8 +46,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/presence_video_online"
+        android:src="@android:drawable/presence_video_busy"
         app:layout_anchor="@+id/item_detail_container"
-        app:layout_anchorGravity="top|end" />
+        app:layout_anchorGravity="top|end"
+        app:backgroundTint="#f9fefa" />
+
+     <!-- <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_crop"
+        app:layout_anchor="@+id/app_bar"
+        app:layout_anchorGravity="top|center"
+        app:backgroundTint="#242020" /> -->
 
 </android.support.design.widget.CoordinatorLayout>

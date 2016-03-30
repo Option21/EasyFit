@@ -2,10 +2,6 @@ package easyfit.easyfit;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.RemoteInput;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
+
+import easyfit.easyfit.Exercices.ItemListActivity;
+import easyfit.easyfit.ProgramList.ProgramListActivity;
 
 public class BaseDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,12 +87,11 @@ public class BaseDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_program) {
-            // Handle the camera action
+            startActivity(new Intent(this, ProgramListActivity.class));
         } else if (id == R.id.nav_calendar) {
 
         } else if (id == R.id.nav_exercices) {
             startActivity(new Intent(this, ItemListActivity.class));
-
         } else if (id == R.id.nav_timer) {
 
         } else if (id == R.id.nav_send) {
