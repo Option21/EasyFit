@@ -55,6 +55,10 @@
             android:name=".Chronometer.Chrono"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".Calendrier.calendar"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

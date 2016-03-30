@@ -32,7 +32,7 @@ public class ItemListActivity extends BaseDrawerActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 */
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    /*    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +49,7 @@ public class ItemListActivity extends BaseDrawerActivity {
                 Snackbar.make(view, "Loading Mail...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
