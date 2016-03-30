@@ -1,4 +1,4 @@
-package easyfit.easyfit;
+package easyfit.easyfit.Exercices;
 
 import android.app.Activity;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -10,11 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import easyfit.easyfit.R;
+
 public class ItemDetailFragment extends Fragment {
 
     public static final String ARG_ITEM_ID = "item_id";
     private ItemListExercice.Exercices mItem;
+
     public ItemDetailFragment() {
+
     }
 
     @Override
@@ -25,6 +29,11 @@ public class ItemDetailFragment extends Fragment {
             mItem = ItemListExercice.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 
             Activity activity = this.getActivity();
+            Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
+            if(toolbar != null)
+            {
+                toolbar.setTitle(mItem.content);
+            }
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.content);

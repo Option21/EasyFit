@@ -1,5 +1,10 @@
-package easyfit.easyfit;
+package easyfit.easyfit.Exercices;
 
+import android.app.Activity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -8,18 +13,17 @@ import java.util.List;
 import java.util.Map;
 
 
-public class ItemListExercice {
+public class ItemListExercice extends Activity{
 
     public static final List<Exercices> ITEMS = new ArrayList<Exercices>();
     public static final Map<String, Exercices> ITEM_MAP = new HashMap<String, Exercices>();
-    private static ImageView imgExo1;
 
     static {
-        addItem(createExerciceMuscu1(1,imgExo1));
-        addItem(createExerciceMuscu2(2,imgExo1));
-        addItem(createExerciceMuscu3(3,imgExo1));
-        addItem(createExerciceMuscu4(4,imgExo1));
-        addItem(createExerciceMuscu5(5,imgExo1));
+        addItem(createExerciceMuscu1(1));
+        addItem(createExerciceMuscu2(2));
+        addItem(createExerciceMuscu3(3));
+        addItem(createExerciceMuscu4(4));
+        addItem(createExerciceMuscu5(5));
     }
 
     private static void addItem(Exercices item) {
@@ -27,20 +31,20 @@ public class ItemListExercice {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static Exercices createExerciceMuscu1(int position,ImageView img) {
-        return new Exercices (String.valueOf(position), "Abdominaux-Exercice : 1 ", Exo1_Abdo(position),img);
+    private static Exercices createExerciceMuscu1(int position) {
+        return new Exercices (String.valueOf(position), "Abdominaux-Exercice : 1 ", Exo1_Abdo(position));
     }
-    private static Exercices createExerciceMuscu2(int position,ImageView img) {
-        return new Exercices (String.valueOf(position), "Bras-Exercice : 1 ", Exo2_Bras(position),img);
+    private static Exercices createExerciceMuscu2(int position) {
+        return new Exercices (String.valueOf(position), "Bras-Exercice : 1 ", Exo2_Bras(position));
     }
-    private static Exercices createExerciceMuscu3(int position,ImageView img) {
-        return new Exercices (String.valueOf(position), "Dos-Exercice : 1", Exo3_Dos(position),img);
+    private static Exercices createExerciceMuscu3(int position) {
+        return new Exercices (String.valueOf(position), "Dos-Exercice : 1", Exo3_Dos(position));
     }
-    private static Exercices createExerciceMuscu4(int position,ImageView img) {
-           return new Exercices (String.valueOf(position), "Jambes-Exercice : 1 ", Exo4_Jambes(position),img);
+    private static Exercices createExerciceMuscu4(int position) {
+           return new Exercices (String.valueOf(position), "Jambes-Exercice : 1 ", Exo4_Jambes(position));
     }
-    private static Exercices createExerciceMuscu5(int position,ImageView img) {
-        return new Exercices (String.valueOf(position), "Torse-Exercice : 1 ", Exo5_Torse(position),img);
+    private static Exercices createExerciceMuscu5(int position) {
+        return new Exercices (String.valueOf(position), "Torse-Exercice : 1 ", Exo5_Torse(position));
     }
 
     private static String Exo1_Abdo(int position)
@@ -140,13 +144,11 @@ public class ItemListExercice {
         public final String id;
         public final String content;
         public final String details;
-        public final ImageView img;
 
-        public Exercices(String id, String content, String details,ImageView img) {
+        public Exercices(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;
-            this.img = img;
         }
 
         @Override

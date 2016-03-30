@@ -1,4 +1,4 @@
-package easyfit.easyfit;
+package easyfit.easyfit.ProgramList;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,11 +13,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-
 import java.util.List;
 
-public class ItemListActivity extends BaseDrawerActivity {
+import easyfit.easyfit.BaseDrawerActivity;
+import easyfit.easyfit.ItemDetailActivity;
+import easyfit.easyfit.ItemDetailFragment;
+import easyfit.easyfit.ItemListExercice;
+import easyfit.easyfit.R;
+
+
+public class ProgramListActivity extends BaseDrawerActivity {
 
     private boolean mTwoPane;
 
@@ -25,12 +30,7 @@ public class ItemListActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_item_list, frame);
-        //setContentView(R.layout.activity_item_list);
-/*
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(getTitle());
-*/
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
