@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="easyfit.easyfit.CreationProfile">
+    tools:context=".Profile.CreationProfile">
 
     <LinearLayout
         android:orientation="vertical"
@@ -16,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_alignParentLeft="false"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:id="@+id/startLayout">
 
         <TextView
             android:layout_width="wrap_content"
@@ -158,7 +159,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="1"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp">
 
             <TextView
@@ -176,7 +177,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/checkBox"
                 android:layout_marginTop="30dp"
-                android:layout_marginLeft="40dp" />
+                android:layout_marginLeft="40dp"
+                android:checked="false" />
 
         </LinearLayout>
 
@@ -184,9 +186,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="VALIDER"
-            android:id="@+id/button"
+            android:id="@+id/valider"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
 
