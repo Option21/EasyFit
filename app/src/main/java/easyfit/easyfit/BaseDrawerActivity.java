@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
+import easyfit.easyfit.Chronometer.Chrono;
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
 
@@ -93,6 +94,7 @@ public class BaseDrawerActivity extends AppCompatActivity
         } else if (id == R.id.nav_exercices) {
             startActivity(new Intent(this, ItemListActivity.class));
         } else if (id == R.id.nav_timer) {
+            startActivity(new Intent(this, Chrono.class));
 
         } else if (id == R.id.nav_send) {
 
