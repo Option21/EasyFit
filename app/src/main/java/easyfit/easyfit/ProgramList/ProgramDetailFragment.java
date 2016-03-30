@@ -34,10 +34,11 @@ public class ProgramDetailFragment extends Fragment {
             {
                 toolbar.setTitle(mItem.content);
             }
+            /*
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.content);
-            }
+            }*/
         }
     }
 

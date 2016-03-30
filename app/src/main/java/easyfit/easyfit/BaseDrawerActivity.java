@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
+import easyfit.easyfit.Calendrier.calendar;
+import easyfit.easyfit.Chronometer.Chrono;
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
 
@@ -89,13 +91,23 @@ public class BaseDrawerActivity extends AppCompatActivity
         if (id == R.id.nav_program) {
             startActivity(new Intent(this, ProgramListActivity.class));
         } else if (id == R.id.nav_calendar) {
-
+            startActivity(new Intent(this, calendar.class));
         } else if (id == R.id.nav_exercices) {
             startActivity(new Intent(this, ItemListActivity.class));
         } else if (id == R.id.nav_timer) {
+            startActivity(new Intent(this, Chrono.class));
 
         } else if (id == R.id.nav_send) {
-
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("message/rfc822");
+            i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
+            i.putExtra(Intent.EXTRA_SUBJECT, "EasyFit");
+            i.putExtra(Intent.EXTRA_TEXT   , "Mes Scores EasyFit: \n Whoua Essaie de me battre :)");
+            try {
+                startActivity(Intent.createChooser(i, "Send mail..."));
+            } catch (android.content.ActivityNotFoundException ex) {
+                throw  ex;
+            }
         } else if (id == R.id.nav_share) {
 
         }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <DatePicker
+        android:id="@+id/dpResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:calendarTextColor="@color/colorPrimaryDark"
+        android:backgroundTint="#100808"
+        android:calendarViewShown="false" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnChangeDate"
+        android:layout_width="102dp"
+        android:layout_height="83dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/abc_btn_radio_to_on_mtrl_000"
+        app:layout_anchor="@+id/item_detail_container"
+        app:layout_anchorGravity="center_vertical|end"
+        app:backgroundTint="#f9fefa" />
+
+</LinearLayout>

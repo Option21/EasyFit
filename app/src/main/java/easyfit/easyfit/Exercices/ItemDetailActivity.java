@@ -62,33 +62,7 @@ public class ItemDetailActivity extends BaseDrawerActivity {
                 }
             }
         });
-        /*
-        FloatingActionButton fab_2 = (FloatingActionButton) findViewById(R.id.fab_2);
-        fab_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (value)
-                {
-                    case 0:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464")));
-                        Log.i("Video", "Video Playing....");
-                        break;
-                    case 1:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464")));
-                        Log.i("Video", "Video Playing....");
-                        break;
-                    case 2:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464")));
-                        Log.i("Video", "Video Playing....");
-                        break;
-                    default:
-                        Snackbar.make(view, "Aucune video Disponible", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
-                        break;
-                }
-            }
-        });*/
-        // Show the Up button in the action bar.
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);

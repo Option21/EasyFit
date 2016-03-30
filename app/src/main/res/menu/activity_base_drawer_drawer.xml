@@ -4,23 +4,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_program"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_liste_program"
             android:title="Programme" />
         <item
             android:id="@+id/nav_calendar"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_menu_camera"
             android:title="Calendrier" />
         <item
             android:id="@+id/nav_exercices"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_liste_exo"
             android:title="Exercices" />
         <item
             android:id="@+id/nav_timer"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_alarm_black"
             android:title="Chrono" />
     </group>
 
-    <item android:title="A VENIR">
+    <item android:title="Partager vos Scores">
         <menu>
             <item
                 android:id="@+id/nav_share"
