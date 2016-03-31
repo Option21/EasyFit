@@ -46,8 +46,8 @@ public class CreationProfile extends AppCompatActivity {
             startLayout = (LinearLayout) findViewById(R.id.startLayout);
             objectifLayout = (LinearLayout) findViewById(R.id.ObjectiveMenu);
 
-            userAccount = new Profile();
-            loadProfile();
+            //userAccount = new Profile();
+            //loadProfile();
 
             final CheckBox chooseObjectif = (CheckBox) findViewById(R.id.checkBox);
             chooseObjectif.setOnClickListener(new View.OnClickListener() {

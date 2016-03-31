@@ -15,7 +15,9 @@ import android.widget.RelativeLayout;
 import easyfit.easyfit.Calendrier.calendar;
 import easyfit.easyfit.Chronometer.Chrono;
 import easyfit.easyfit.Exercices.ItemListActivity;
+import easyfit.easyfit.Profile.CreationProfile;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
+import easyfit.easyfit.graphique.graph;
 
 public class BaseDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,30 +89,39 @@ public class BaseDrawerActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_program) {
-            startActivity(new Intent(this, ProgramListActivity.class));
-        } else if (id == R.id.nav_calendar) {
-            startActivity(new Intent(this, calendar.class));
-        } else if (id == R.id.nav_exercices) {
-            startActivity(new Intent(this, ItemListActivity.class));
-        } else if (id == R.id.nav_timer) {
-            startActivity(new Intent(this, Chrono.class));
-        }else if(id == R.id.profile) {
-
-        }else if (id == R.id.nav_send) {
-            Intent i = new Intent(Intent.ACTION_SEND);
-            i.setType("message/rfc822");
-            i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
-            i.putExtra(Intent.EXTRA_SUBJECT, "EasyFit");
-            i.putExtra(Intent.EXTRA_TEXT   , "Mes Scores EasyFit: \n Whoua Essaie de me battre :)");
-            try {
-                startActivity(Intent.createChooser(i, "Send mail..."));
-            } catch (android.content.ActivityNotFoundException ex) {
-                throw  ex;
-            }
-        } else if (id == R.id.nav_share) {
-
+        switch(id)
+        {
+            case R.id.nav_program:
+                startActivity(new Intent(this, ProgramListActivity.class));
+                break;
+            case R.id.nav_calendar:
+                startActivity(new Intent(this, calendar.class));
+                break;
+            case R.id.nav_exercices:
+                startActivity(new Intent(this, ItemListActivity.class));
+                break;
+            case R.id.nav_timer:
+                startActivity(new Intent(this, Chrono.class));
+                break;
+            case R.id.profile:
+                startActivity(new Intent(this, CreationProfile.class));
+                break;
+            case R.id.graph:
+                startActivity(new Intent(this,graph.class));
+            case R.id.nav_send:
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "EasyFit");
+                i.putExtra(Intent.EXTRA_TEXT   , "Mes Scores EasyFit: \n Whoua Essaie de me battre :)");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    throw  ex;
+                }
+                break;
+            default:
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

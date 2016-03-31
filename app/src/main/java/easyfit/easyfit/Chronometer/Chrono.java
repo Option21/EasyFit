@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import easyfit.easyfit.BaseDrawerActivity;
 import easyfit.easyfit.R;
@@ -28,6 +31,8 @@ public class Chrono extends BaseDrawerActivity {
         Button btn_start = (Button) findViewById(R.id.btn_start);
         Button btn_stop = (Button) findViewById(R.id.btn_stop);
         Button btn_reset = (Button) findViewById(R.id.btn_reset);
+        Button bnt_lap = (Button) findViewById(R.id.btn_lap);
+        final TextView laview = (TextView) findViewById(R.id.lap_view);
 
         assert (btn_start != null && btn_stop != null && btn_reset != null);
 
@@ -55,6 +60,13 @@ public class Chrono extends BaseDrawerActivity {
             @Override
             public void onClick(View v) {
                 c.setBase(SystemClock.elapsedRealtime());
+            }
+        });
+
+        bnt_lap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                laview.setText(c.getText().toString());
             }
         });
 
