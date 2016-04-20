@@ -11,8 +11,7 @@
         <activity
             android:name=".Exercices.ItemListActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Exercices.ItemDetailActivity"
             android:label="@string/title_item_detail"
@@ -25,8 +24,7 @@
         <activity
             android:name=".ProgramList.ProgramListActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProgramList.ProgramDetailActivity"
             android:label="@string/title_item_detail"
@@ -36,28 +34,29 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Exercices.ItemListActivity" />
         </activity>
-
         <activity
             android:name=".BaseDrawerActivity"
             android:label="@string/title_activity_base_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
-        <activity android:name=".Profile.CreationProfile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile.CreationProfile"
             android:label="EasyFit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".Profile.ProfileView"
+            android:label="EasyFit"></activity>
         <activity
             android:name=".Chronometer.Chrono"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Calendrier.calendar"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Profile.ProfileModification"></activity>
     </application>
 
 </manifest>

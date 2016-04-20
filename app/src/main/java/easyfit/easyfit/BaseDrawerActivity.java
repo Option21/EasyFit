@@ -16,6 +16,7 @@ import easyfit.easyfit.Calendrier.calendar;
 import easyfit.easyfit.Chronometer.Chrono;
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.Profile.CreationProfile;
+import easyfit.easyfit.Profile.ProfileView;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
 import easyfit.easyfit.graphique.graph;
 
@@ -104,7 +105,7 @@ public class BaseDrawerActivity extends AppCompatActivity
                 startActivity(new Intent(this, Chrono.class));
                 break;
             case R.id.profile:
-                startActivity(new Intent(this, CreationProfile.class));
+                startActivity(new Intent(this, ProfileView.class));
                 break;
             case R.id.graph:
                 startActivity(new Intent(this,graph.class));
