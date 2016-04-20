@@ -28,6 +28,10 @@
                     android:id="@+id/graph"
                     android:icon="@drawable/ic_graph"
                     android:title="Graphiques" />
+                <item
+                    android:id="@+id/podometer"
+                    android:icon="@drawable/ic_podometer"
+                    android:title="Podomètre" />
             </menu>
         </item>
     </group>

@@ -3,7 +3,9 @@ package easyfit.easyfit.Calendrier;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -40,8 +42,27 @@ public class calendar extends BaseDrawerActivity{
         addListenerOnButton();
 
     }
+    public void addListenerOnButton() {
 
-    // display current date
+        btnChangeDate = (FloatingActionButton) findViewById(R.id.btnChangeDate);
+
+        btnChangeDate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_INSERT);
+                intent.setType("vnd.android.cursor.item/event");
+                startActivity(intent);
+                intent.putExtra(CalendarContract.Events.TITLE, "Musculation Time with EasyFit");
+                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Musculation Center");
+                intent.putExtra(CalendarContract.Events.DESCRIPTION, "Vous avez choisit l'exercice :");
+                intent.putExtra(CalendarContract.Events.CALENDAR_COLOR_KEY, true);
+                intent.putExtra(CalendarContract.Events.IS_ORGANIZER, "EasyFit");
+                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "La Salle");
+            }
+        });
+    }
+
     public void setCurrentDateOnView() {
 
         dpResult = (DatePicker) findViewById(R.id.dpResult);
@@ -51,33 +72,15 @@ public class calendar extends BaseDrawerActivity{
         month = c.get(Calendar.MONTH);
         day = c.get(Calendar.DAY_OF_MONTH);
 
-        // set current date into datepicker
         dpResult.init(year, month, day, null);
 
     }
 
-    public void addListenerOnButton() {
-
-        btnChangeDate = (FloatingActionButton) findViewById(R.id.btnChangeDate);
-
-        btnChangeDate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                showDialog(DATE_DIALOG_ID);
-
-            }
-
-        });
-
-    }
 
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case DATE_DIALOG_ID:
-                // set date picker as current date
                 return new DatePickerDialog(this, datePickerListener,
                         year, month,day);
         }
@@ -87,14 +90,11 @@ public class calendar extends BaseDrawerActivity{
     private DatePickerDialog.OnDateSetListener datePickerListener
             = new DatePickerDialog.OnDateSetListener() {
 
-        // when dialog box is closed, below method will be called.
         public void onDateSet(DatePicker view, int selectedYear,
                               int selectedMonth, int selectedDay) {
             year = selectedYear;
             month = selectedMonth;
             day = selectedDay;
-
-            // set selected date into datepicker also
             dpResult.init(year, month, day, null);
 
         }

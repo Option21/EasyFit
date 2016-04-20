@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import easyfit.easyfit.Calendrier.calendar;
 import easyfit.easyfit.Chronometer.Chrono;
 import easyfit.easyfit.Exercices.ItemListActivity;
+import easyfit.easyfit.Podometer.Podometer;
 import easyfit.easyfit.Profile.CreationProfile;
 import easyfit.easyfit.Profile.ProfileView;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
@@ -33,16 +34,6 @@ public class BaseDrawerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         frame = (RelativeLayout)findViewById(R.id.relativeframe);
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -65,19 +56,14 @@ public class BaseDrawerActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.base_drawer, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -88,7 +74,6 @@ public class BaseDrawerActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch(id)
         {
@@ -109,16 +94,21 @@ public class BaseDrawerActivity extends AppCompatActivity
                 break;
             case R.id.graph:
                 startActivity(new Intent(this,graph.class));
+                break;
+            case R.id.podometer:
+                startActivity(new Intent(this, Podometer.class));
             case R.id.nav_send:
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "EasyFit");
-                i.putExtra(Intent.EXTRA_TEXT   , "Mes Scores EasyFit: \n Whoua Essaie de me battre :)");
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    throw  ex;
+                if(item.getItemId() != R.id.podometer) {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("message/rfc822");
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"FeedBack-noReply@EasyFit.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "EasyFit");
+                    i.putExtra(Intent.EXTRA_TEXT, "Mes Scores EasyFit: \n Whoua Essaie de me battre :)");
+                    try {
+                        startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        throw ex;
+                    }
                 }
                 break;
             default:

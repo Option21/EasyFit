@@ -56,6 +56,10 @@
         <activity
             android:name=".Calendrier.calendar"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Podometer.Podometer"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".Profile.ProfileModification"></activity>
     </application>
 
