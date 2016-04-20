@@ -212,7 +212,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Perdre du poids"
-                android:id="@+id/checkBox6"
+                android:id="@+id/modifPoids"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="80dp" />
 
@@ -220,7 +220,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gagner de la masse musculaire"
-                android:id="@+id/checkBox7"
+                android:id="@+id/modifsMasse"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="80dp" />
 
@@ -228,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="M&apos;affiner"
-                android:id="@+id/checkBox8"
+                android:id="@+id/modifsAffiner"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="80dp" />
         </LinearLayout>

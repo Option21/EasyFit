@@ -77,10 +77,11 @@ public class ProfileSQL extends SQLiteOpenHelper {
         values.put(KEY_MAIL, profile.getMail());
         values.put(KEY_TAILLE, profile.getTaille());
         values.put(KEY_POIDS, profile.getPoids());
+
         if(profile.getEntrainementProgram())
             values.put(KEY_PROGRAM, profile.getEntrainementName());
         else
-            values.put(KEY_PROGRAM, "NULL");
+            values.put(KEY_PROGRAM, " ");
 
         // 3. insert
         db.insert(TABLE_PROFILE, // table
@@ -138,7 +139,7 @@ public class ProfileSQL extends SQLiteOpenHelper {
         if(profile.getEntrainementProgram())
             values.put(KEY_PROGRAM, profile.getEntrainementName());
         else
-            values.put(KEY_PROGRAM, "NULL");
+            values.put(KEY_PROGRAM, " ");
 
         // 3. updating row
         int i = db.update(TABLE_PROFILE, //table

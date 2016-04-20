@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import easyfit.easyfit.R;
 
-public class Podometer extends Activity implements SensorEventListener {
+public class Podometer extends easyfit.easyfit.BaseDrawerActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
     private TextView count;
@@ -25,7 +25,7 @@ public class Podometer extends Activity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanteState)
     {
         super.onCreate(savedInstanteState);
-        setContentView(R.layout.podometer_layout);
+        getLayoutInflater().inflate(R.layout.podometer_layout, frame);
 
         count = (TextView) findViewById(R.id.count);
         meter = (TextView) findViewById(R.id.meter);

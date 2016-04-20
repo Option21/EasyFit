@@ -47,9 +47,8 @@ public class CreationProfile extends AppCompatActivity {
         settings = getSharedPreferences(PREFS_NAME, 0);
 
         settings.edit().putBoolean("my_first_time", true).commit();
-
-
      if (settings.getBoolean("my_first_time", true)) {
+        //if(bdProfile.getProfile(1)!=null){
             settings.edit().putBoolean("my_first_time", false).commit();
             setContentView(R.layout.activity_creation_profile);
 
@@ -57,6 +56,7 @@ public class CreationProfile extends AppCompatActivity {
             objectifLayout = (LinearLayout) findViewById(R.id.ObjectiveMenu);
 
             userAccount = new Profile();
+             userAccount.setEntrainementName("NULL");
 
             final CheckBox chooseObjectif = (CheckBox) findViewById(R.id.checkBox);
         chooseObjectif.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +67,7 @@ public class CreationProfile extends AppCompatActivity {
                 } else {
                     chooseObjectif.setChecked(false);
                     userAccount.setEntrainementProgram(false);
+                    userAccount.setEntrainementName("NULL");
                     }
                 }
             });

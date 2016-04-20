@@ -52,13 +52,12 @@ public class calendar extends BaseDrawerActivity{
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_INSERT);
                 intent.setType("vnd.android.cursor.item/event");
-                startActivity(intent);
                 intent.putExtra(CalendarContract.Events.TITLE, "Musculation Time with EasyFit");
-                intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Musculation Center");
                 intent.putExtra(CalendarContract.Events.DESCRIPTION, "Vous avez choisit l'exercice :");
                 intent.putExtra(CalendarContract.Events.CALENDAR_COLOR_KEY, true);
                 intent.putExtra(CalendarContract.Events.IS_ORGANIZER, "EasyFit");
                 intent.putExtra(CalendarContract.Events.EVENT_LOCATION, "La Salle");
+                startActivity(intent);
             }
         });
     }

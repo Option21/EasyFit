@@ -70,7 +70,7 @@ public class Profile {
 
     public void setEntrainementName(String value) {
         if(value=="NULL") {
-            this.entrainementName = "";
+            this.entrainementName = " ";
             this.entrainementProgram = false;
         }
         else {

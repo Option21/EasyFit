@@ -10,18 +10,20 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import easyfit.easyfit.BaseDrawerActivity;
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.ProfileSQL;
 import easyfit.easyfit.R;
 
-public class ProfileView extends AppCompatActivity {
+public class ProfileView extends BaseDrawerActivity {
 
     protected ProfileSQL bdProfile = new ProfileSQL(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_view);
+        //setContentView(R.layout.activity_profile_view);
+        getLayoutInflater().inflate(R.layout.activity_profile_view, frame);
         loadProfile();
         Button validation = (Button) findViewById(R.id.modifier);
         validation.setOnClickListener(new View.OnClickListener() {
@@ -46,9 +48,8 @@ public class ProfileView extends AppCompatActivity {
         mail.setText(bdProfile.getProfile(1).getMail());
         taille.setText(String.valueOf(bdProfile.getProfile(1).getTaille()));
 
-        if(bdProfile.getProfile(1).getEntrainementProgram()) {
-            program.setText(bdProfile.getProfile(1).getEntrainementName());
-        }
+
+        program.setText(bdProfile.getProfile(1).getEntrainementName());
 
     }
 

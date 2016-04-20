@@ -11,18 +11,19 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import easyfit.easyfit.BaseDrawerActivity;
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.ProfileSQL;
 import easyfit.easyfit.R;
 
-public class ProfileModification extends AppCompatActivity {
+public class ProfileModification extends BaseDrawerActivity {
 
     protected LinearLayout objectifLayout;
     protected LinearLayout startLayout;
 
     protected ProfileSQL bdProfile = new ProfileSQL(this);
 
-    private static final int[] idArray = {R.id.checkBox2, R.id.checkBox3, R.id.checkBox4};
+    private static final int[] idArray = {R.id.modifPoids, R.id.modifsMasse, R.id.modifsAffiner};
     private CheckBox[] btObj = new CheckBox[idArray.length];
 
     public Profile userAccount;
@@ -32,11 +33,14 @@ public class ProfileModification extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_modification);
+       // setContentView(R.layout.activity_profile_modification);
+        getLayoutInflater().inflate(R.layout.activity_profile_modification, frame);
         startLayout = (LinearLayout) findViewById(R.id.startLayoutModif);
         objectifLayout = (LinearLayout) findViewById(R.id.ObjectiveMenuModif);
 
         userAccount = new Profile();
+        userAccount.setEntrainementName("NULL");
+        userAccount.setEntrainementProgram(false);
         loadProfile();
 
         final CheckBox chooseObjectif = (CheckBox) findViewById(R.id.checkboxModif);

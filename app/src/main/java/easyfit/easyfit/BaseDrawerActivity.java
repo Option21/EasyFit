@@ -28,7 +28,9 @@ import easyfit.easyfit.Chronometer.Chrono;
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.Profile.CreationProfile;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
-import easyfit.easyfit.graphique.graph;
+import easyfit.easyfit.graphique.Graph;
+import easyfit.easyfit.Podometer.Podometer;
+import easyfit.easyfit.Program.program;
 
 public class BaseDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -119,7 +121,7 @@ public class BaseDrawerActivity extends AppCompatActivity
         switch(id)
         {
             case R.id.nav_program:
-                startActivity(new Intent(this, ProgramListActivity.class));
+                startActivity(new Intent(this, program.class));
                 break;
             case R.id.nav_calendar:
                 startActivity(new Intent(this, calendar.class));
@@ -131,21 +133,26 @@ public class BaseDrawerActivity extends AppCompatActivity
                 startActivity(new Intent(this, Chrono.class));
                 break;
             case R.id.profile:
-                startActivity(new Intent(this, CreationProfile.class));
+                startActivity(new Intent(this, easyfit.easyfit.Profile.ProfileView.class));
                 break;
             case R.id.graph:
-                startActivity(new Intent(this,graph.class));
+                startActivity(new Intent(this, easyfit.easyfit.graphique.Graph.class));
+                break;
+            case R.id.podometer:
+                startActivity(new Intent(this,Podometer.class));
                 break;
             case R.id.nav_send:
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "EasyFit");
-                i.putExtra(Intent.EXTRA_TEXT   , "Mes Scores EasyFit: \n Whoua Essaie de me battre :)");
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    throw  ex;
+                if(item.getItemId() != R.id.podometer) {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("message/rfc822");
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"FeedBack-noReply@EasyFit.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "EasyFit");
+                    i.putExtra(Intent.EXTRA_TEXT, "Mes Scores EasyFit: \n Whoua Essaie de me battre :)");
+                    try {
+                        startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        throw ex;
+                    }
                 }
                 break;
 

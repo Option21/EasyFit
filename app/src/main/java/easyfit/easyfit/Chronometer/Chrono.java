@@ -21,6 +21,9 @@ public class Chrono extends BaseDrawerActivity {
     Chronometer c;
     long time;
     boolean stopped = true;
+    int nbLap = 0;
+    String lap1 = "", lap2 = "", lap3 = "";
+    TextView laview, laview2, laview3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +35,10 @@ public class Chrono extends BaseDrawerActivity {
         Button btn_stop = (Button) findViewById(R.id.btn_stop);
         Button btn_reset = (Button) findViewById(R.id.btn_reset);
         Button bnt_lap = (Button) findViewById(R.id.btn_lap);
-        final TextView laview = (TextView) findViewById(R.id.lap_view);
+        laview = (TextView) findViewById(R.id.lap_view);
+        laview2 = (TextView)findViewById(R.id.lap_view2);
+        laview3 = (TextView)findViewById(R.id.lap_view3);
+
 
         assert (btn_start != null && btn_stop != null && btn_reset != null);
 
@@ -60,13 +66,37 @@ public class Chrono extends BaseDrawerActivity {
             @Override
             public void onClick(View v) {
                 c.setBase(SystemClock.elapsedRealtime());
+                laview.setText("");laview2.setText("");laview3.setText("");
             }
         });
 
         bnt_lap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                laview.setText(c.getText().toString());
+                switch (nbLap)
+                {
+                    case 0:
+                        laview.setText(c.getText().toString());
+                        lap1 = c.getText().toString();
+                        nbLap++;
+                        break;
+                    case 1:
+                        laview2.setText(c.getText().toString());
+                        lap2 = c.getText().toString();
+                        nbLap++;
+                        break;
+                    case 2:
+                        laview3.setText(c.getText().toString());
+                        lap3 = c.getText().toString();
+                        nbLap = 0;
+                        break;
+                    default:
+                        break;
+
+
+                }
+
+
             }
         });
 
@@ -95,6 +125,10 @@ public class Chrono extends BaseDrawerActivity {
         savedInstanceState.putLong("ChronoTime", c.getBase());
         savedInstanceState.putLong("Time", getTime(c));
         savedInstanceState.putBoolean("Stopped", stopped);
+        savedInstanceState.putString("lap1", laview.getText().toString());
+        savedInstanceState.putString("lap2", laview2.getText().toString());
+        savedInstanceState.putString("lap3", laview3.getText().toString());
+        savedInstanceState.putInt("nbLap", nbLap);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -107,6 +141,14 @@ public class Chrono extends BaseDrawerActivity {
                 c.start();
                 stopped = false;
             }
+            if(savedInstanceState.getString("lap1") != "" )
+                laview.setText(savedInstanceState.getString("lap1").toString());
+            if(savedInstanceState.getString("lap2") != "")
+                laview2.setText(savedInstanceState.getString("lap2").toString());
+            if(savedInstanceState.getString("lap3") != "")
+                laview3.setText(savedInstanceState.getString("lap3").toString());
+            nbLap = savedInstanceState.getInt("nbLap");
+
 
         }
         super.onRestoreInstanceState(savedInstanceState);

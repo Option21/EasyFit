@@ -32,5 +32,5 @@ dependencies {
     compile 'com.android.support:design:23.2.1'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
-
+    compile 'com.jjoe64:graphview:4.0.1'
 }
