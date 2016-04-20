@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -30,30 +31,6 @@ public class ItemListActivity extends BaseDrawerActivity {
 
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_item_list, frame);
-        //setContentView(R.layout.activity_item_list);
-/*
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(getTitle());
-*/
-    /*    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"FeedBack-noReply@EasyFit.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "Sujet");
-                i.putExtra(Intent.EXTRA_TEXT   , "...");
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    throw  ex;
-                }
-                Snackbar.make(view, "Loading Mail...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
@@ -89,6 +66,7 @@ public class ItemListActivity extends BaseDrawerActivity {
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(mValues.get(position).id);
             holder.mContentView.setText(mValues.get(position).content);
+            holder.imageView.setImageResource(R.mipmap.ic_launcher_final);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -121,6 +99,7 @@ public class ItemListActivity extends BaseDrawerActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
+            public final ImageView imageView;
             public ItemListExercice.Exercices mItem;
 
             public ViewHolder(View view) {
@@ -128,6 +107,7 @@ public class ItemListActivity extends BaseDrawerActivity {
                 mView = view;
                 mIdView = (TextView) view.findViewById(R.id.id);
                 mContentView = (TextView) view.findViewById(R.id.content);
+                imageView = (ImageView) view.findViewById(R.id.image);
             }
 
             @Override

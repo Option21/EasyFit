@@ -15,14 +15,19 @@ import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
+
 import easyfit.easyfit.Exercices.ItemListActivity;
+import easyfit.easyfit.ProfileSQL;
 import easyfit.easyfit.ProgramList.ProgramListActivity;
 import easyfit.easyfit.R;
+import android.util.Log;
 
 public class CreationProfile extends AppCompatActivity {
 
     protected LinearLayout objectifLayout;
     protected LinearLayout startLayout;
+
+    protected ProfileSQL bdProfile = new ProfileSQL(this);
 
     private static final int[] idArray = {R.id.checkBox2, R.id.checkBox3, R.id.checkBox4 };
     private CheckBox[] btObj = new CheckBox[idArray.length];
@@ -39,45 +44,44 @@ public class CreationProfile extends AppCompatActivity {
 
 
         final String PREFS_NAME = "MyPrefsFile";
-
         settings = getSharedPreferences(PREFS_NAME, 0);
 
-       // if (settings.getBoolean("my_first_time", true)) {
+        settings.edit().putBoolean("my_first_time", true).commit();
 
+
+     if (settings.getBoolean("my_first_time", true)) {
+            settings.edit().putBoolean("my_first_time", false).commit();
             setContentView(R.layout.activity_creation_profile);
 
             startLayout = (LinearLayout) findViewById(R.id.startLayout);
             objectifLayout = (LinearLayout) findViewById(R.id.ObjectiveMenu);
 
-            //userAccount = new Profile();
-            //loadProfile();
+            userAccount = new Profile();
 
             final CheckBox chooseObjectif = (CheckBox) findViewById(R.id.checkBox);
-            chooseObjectif.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(chooseObjectif.isChecked()) {
-                        showObjectifPanel();
-                    }
-                    else {
-                        chooseObjectif.setChecked(false);
-                        userAccount.setEntrainementProgram(false);
+        chooseObjectif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chooseObjectif.isChecked()) {
+                    showObjectifPanel();
+                } else {
+                    chooseObjectif.setChecked(false);
+                    userAccount.setEntrainementProgram(false);
                     }
                 }
             });
-            settings.edit().putBoolean("my_first_time", false).commit();
-
             Button validation = (Button) findViewById(R.id.valider);
             validation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    saveProfile();
                     launchApplication();
                 }
             });
-       // }
-      /*  else{
-            launchApplication();
-        }*/
+       }
+      else{
+           launchApplication();
+       }
     }
 
     protected void showObjectifPanel() {
@@ -89,6 +93,18 @@ public class CreationProfile extends AppCompatActivity {
             btObj [b].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    switch (b){
+                        case 0:
+                            userAccount.setEntrainementName("poids");
+                            break;
+                        case 1:
+                            userAccount.setEntrainementName("muscle");
+                            break;
+                        case 2:
+                            userAccount.setEntrainementName("affiner");
+                            break;
+                    }
+                    userAccount.setEntrainementProgram(true);
                     hiddeObjectifPanel();
                 }
             });
@@ -119,25 +135,6 @@ public class CreationProfile extends AppCompatActivity {
         userAccount.setPoids(Integer.parseInt(poids.getText().toString()));
         userAccount.setTaille(Float.parseFloat(taille.getText().toString()));
 
-        settings.edit().putString("name", userAccount.getName());
-        settings.edit().putString("mail", userAccount.getMail());
-        settings.edit().putInt("age", userAccount.getAge());
-        settings.edit().putInt("poids", userAccount.getPoids());
-        settings.edit().putFloat("taille", userAccount.getTaille());
+        bdProfile.addProfile(userAccount);
     }
-
-    protected void loadProfile(){
-        EditText name = (EditText) findViewById(R.id.nameEdit);
-        EditText age = (EditText) findViewById(R.id.ageEdit);
-        EditText poids = (EditText) findViewById(R.id.poidsEdit);
-        EditText mail = (EditText) findViewById(R.id.mailEdit);
-        EditText taille = (EditText) findViewById(R.id.sizeEdit);
-
-        name.setText(settings.getString("name", ""));
-        age.setText(settings.getInt("age", 0));
-        poids.setText(settings.getInt("poids", 0));
-        mail.setText(settings.getString("mail",""));
-        taille.setText(String.valueOf(settings.getFloat("taille", 0)));
-    }
-
 }

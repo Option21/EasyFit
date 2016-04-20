@@ -9,13 +9,15 @@ public class Profile {
     private float taille;
 
     private boolean entrainementProgram;
+    private String entrainementName;
 
-    public Profile(String nom, String email, int age, int poids, float taille){
+    public Profile(String nom, String email, int age, int poids, float taille, String entrainement){
         this.name = nom;
         this.mail = mail;
         this.age = age;
         this.poids = poids;
         this.taille = taille;
+        this.entrainementName = entrainement;
     }
 
     public Profile(){
@@ -45,6 +47,7 @@ public class Profile {
     public boolean getEntrainementProgram(){
         return this.entrainementProgram;
     }
+    public String getEntrainementName(){ return this.entrainementName; }
 
     public void setName(String nom){
         this.name = nom;
@@ -63,6 +66,17 @@ public class Profile {
     }
     public void setEntrainementProgram(boolean value){
         this.entrainementProgram= value;
+    }
+
+    public void setEntrainementName(String value) {
+        if(value=="NULL") {
+            this.entrainementName = "";
+            this.entrainementProgram = false;
+        }
+        else {
+            this.entrainementName = value;
+            this.entrainementProgram = true;
+        }
     }
 
 }
