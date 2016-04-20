@@ -1,2 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.2.1_95542de282f5265eb56023fd8dbf5d8d7a422099.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.2.1_853df47455e48f26443af51baabf0ac5f2685031.jar" />
+    </item>
+    <item
+        jar="C:\android_sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.1_d4251461d35b12f627e8cff9825a84c7aecaf57b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.2.1_f58eefdc2770629b589f17cc83570c5a701e6611.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0e5a66a941515d873a34065fe44fbba6ef422a1b">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-customtabs-23.2.1_e0642d2f901d0c1a9709ddba1d626d566f408f0b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.1_45cb389336d90e207abed2f8397f378d73ec6029.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.2.1_f9cf546e7b3e96853e887e427922b3ceeeadc130.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.11.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="86da97c30f50a67ddabe2cf7040713ad17153fce">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-android-sdk-4.11.0_f0503fd55c9db030abfe1d4c7bbb1d1ce06bae41.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_d75d6d73f0560ff656db24e01416e73a9fdf4ca5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_2be76748297e72d8c2ff1278a79bf3ac555779b8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.2.1_b8e827ecd973259188e136970ac054ed1e4e516d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.2.1_2db2a600b9285bd4231d42a97e94c255fea39d3d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="C:\Users\Jim&apos;\Desktop\real\EasyFit\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.2.1_e99f57dbe2aecaef9c403ed74e6486800b306c01.jar" />
+    </item>
+
+</items>
