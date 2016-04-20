@@ -46,7 +46,7 @@ public class BaseDrawerActivity extends AppCompatActivity
 
 
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("user_friends");
+        //loginButton.setReadPermissions("user_friends");
 
         //getLoginDetails(loginButton);
 

@@ -1,6 +1,6 @@
 <resources>
     <string name="facebook_app_id">196005017137591</string>
-    <string name="youtubeapikey">AIzaSyAkEYuSAZfyhEstJcsZS3ipRvhePVUHyXU</string>
+    <string name="DEVELOPER_KEY">AIzaSyAkEYuSAZfyhEstJcsZS3ipRvhePVUHyXU</string>
     <string name="app_name">EasyFit</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="title_activity_base_drawer">BaseDrawerActivity</string>

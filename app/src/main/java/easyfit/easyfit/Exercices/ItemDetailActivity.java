@@ -12,6 +12,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
+
 import easyfit.easyfit.BaseDrawerActivity;
 import easyfit.easyfit.R;
 
@@ -36,23 +38,34 @@ public class ItemDetailActivity extends BaseDrawerActivity {
                 switch (value)
                 {
                     case 0:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/zUk1BiL6Ajc")));
+                       // startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/zUk1BiL6Ajc")));
+                        startActivity(YouTubeStandalonePlayer.createVideoIntent(ItemDetailActivity.this
+                                , getApplicationContext().getResources().getString(R.string.DEVELOPER_KEY), "zUk1BiL6Ajc"));
+
                         Log.i("Video", "Video Playing....");
                         break;
                     case 1:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/ZLRBO5wiPwM")));
+                       // startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/ZLRBO5wiPwM")));
+                        startActivity(YouTubeStandalonePlayer.createVideoIntent(ItemDetailActivity.this
+                                , getApplicationContext().getResources().getString(R.string.DEVELOPER_KEY), "ZLRBO5wiPwM"));
                         Log.i("Video", "Video Playing....");
                         break;
                     case 2:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/OnKLnb2vsPI")));
+                        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/OnKLnb2vsPI")));
+                        startActivity(YouTubeStandalonePlayer.createVideoIntent(ItemDetailActivity.this
+                                , getApplicationContext().getResources().getString(R.string.DEVELOPER_KEY), "OnKLnb2vsPI"));
                         Log.i("Video", "Video Playing....");
                         break;
                     case 3:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/fypQ8tQ1OP0")));
+                        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/fypQ8tQ1OP0")));
+                        startActivity(YouTubeStandalonePlayer.createVideoIntent(ItemDetailActivity.this
+                                , getApplicationContext().getResources().getString(R.string.DEVELOPER_KEY), "fypQ8tQ1OP0"));
                         Log.i("Video", "Video Playing....");
                         break;
                     case 4:
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/3XkA5q8bM1k")));
+                        //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/3XkA5q8bM1k")));
+                        startActivity(YouTubeStandalonePlayer.createVideoIntent(ItemDetailActivity.this
+                                , getApplicationContext().getResources().getString(R.string.DEVELOPER_KEY), "3XkA5q8bM1k"));
                         Log.i("Video", "Video Playing....");
                         break;
                     default:
