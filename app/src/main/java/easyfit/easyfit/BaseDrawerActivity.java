@@ -1,6 +1,7 @@
 package easyfit.easyfit;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +12,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
 import easyfit.easyfit.Calendrier.calendar;
 import easyfit.easyfit.Chronometer.Chrono;
@@ -23,10 +34,25 @@ public class BaseDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     protected RelativeLayout frame;
-
+    protected ShareDialog shareDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+        AppEventsLogger.activateApp(this);
+        //callbackManager = CallbackManager.Factory.create();
+
+
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions("user_friends");
+
+        //getLoginDetails(loginButton);
+
+        shareDialog = new ShareDialog(this);
+
+
         setContentView(R.layout.activity_base_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,6 +77,7 @@ public class BaseDrawerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -108,6 +135,7 @@ public class BaseDrawerActivity extends AppCompatActivity
                 break;
             case R.id.graph:
                 startActivity(new Intent(this,graph.class));
+                break;
             case R.id.nav_send:
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("message/rfc822");
@@ -118,6 +146,19 @@ public class BaseDrawerActivity extends AppCompatActivity
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
                     throw  ex;
+                }
+                break;
+
+            case R.id.nav_share:
+                if (ShareDialog.canShow(ShareLinkContent.class)) {
+                    ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                            .setContentTitle("Rejoignez moi sur Easyfit!")
+                            .setContentDescription(
+                                    "rejoignez moi!")
+                            .setContentUrl(Uri.parse("https://www.easyfit.com/"))
+                            .build();
+
+                    shareDialog.show(linkContent);  // Show facebook ShareDialog
                 }
                 break;
             default:

@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 import java.util.List;
 
 import easyfit.easyfit.BaseDrawerActivity;
@@ -24,6 +27,7 @@ public class ItemListActivity extends BaseDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_item_list, frame);
         //setContentView(R.layout.activity_item_list);
