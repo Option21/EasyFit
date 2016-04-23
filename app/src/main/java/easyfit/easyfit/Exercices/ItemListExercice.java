@@ -26,6 +26,9 @@ public class ItemListExercice extends Activity{
         addItem(createExerciceMuscu5(5));
     }
 
+    public ItemListExercice() {
+    }
+
     private static void addItem(Exercices item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
