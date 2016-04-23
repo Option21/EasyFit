@@ -16,6 +16,10 @@ import java.util.List;
 
 import easyfit.easyfit.R;
 
+/**
+ * Created by Bomb-X on 23/04/16.
+ */
+
 public class HistoriqueExerciceSQL extends SQLiteOpenHelper {
 
     // Database Version
