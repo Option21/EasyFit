@@ -21,20 +21,16 @@ import easyfit.easyfit.R;
 public class program extends BaseDrawerActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.program_layout, frame);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setContentView(R.layout.program_layout);
+        getLayoutInflater().inflate(R.layout.program_layout, frame,true);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
     }
 
 
@@ -65,8 +61,9 @@ public class program extends BaseDrawerActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+
             View rootView = inflater.inflate(R.layout.program_fragment, container,false);
-            //getLayoutInflater().inflate(R.layout.program_layout, frame);
+
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             switch(getArguments().getInt(ARG_SECTION_NUMBER))
             {
@@ -118,9 +115,9 @@ public class program extends BaseDrawerActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "Exercices Débutant";
                 case 1:
-                    return "SECTION 2";
+                    return "Exercice Avancées";
             }
             return null;
         }

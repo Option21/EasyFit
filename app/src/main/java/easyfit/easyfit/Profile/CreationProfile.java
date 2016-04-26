@@ -18,7 +18,6 @@ import org.w3c.dom.Text;
 
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.ProfileSQL;
-import easyfit.easyfit.ProgramList.ProgramListActivity;
 import easyfit.easyfit.R;
 import android.util.Log;
 

@@ -47,7 +47,8 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity android:name=".Profile.CreationProfile"
-            android:label="EasyFit">
+            android:label="EasyFit"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -55,10 +56,12 @@
         </activity>
         <activity android:name=".Profile.ProfileView"
             android:label="EasyFit"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">>
         </activity>
         <activity android:name=".Profile.ProfileModification"
             android:label="EasyFit"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">>
         </activity>
 

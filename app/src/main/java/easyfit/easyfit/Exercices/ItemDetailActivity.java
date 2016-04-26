@@ -24,7 +24,6 @@ public class ItemDetailActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_item_detail, frame);
-     //   setContentView(R.layout.activity_item_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
@@ -41,7 +40,6 @@ public class ItemDetailActivity extends BaseDrawerActivity {
                        // startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/zUk1BiL6Ajc")));
                         startActivity(YouTubeStandalonePlayer.createVideoIntent(ItemDetailActivity.this
                                 , getApplicationContext().getResources().getString(R.string.DEVELOPER_KEY), "zUk1BiL6Ajc"));
-
                         Log.i("Video", "Video Playing....");
                         break;
                     case 1:
@@ -75,7 +73,6 @@ public class ItemDetailActivity extends BaseDrawerActivity {
                 }
             }
         });
-
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);

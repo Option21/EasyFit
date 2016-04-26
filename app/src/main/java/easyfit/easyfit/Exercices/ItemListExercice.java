@@ -35,7 +35,7 @@ public class ItemListExercice extends Activity{
     }
 
     private static Exercices createExerciceMuscu1(int position) {
-        return new Exercices (String.valueOf(position), "Abdominaux-Exercice : 1 ", Exo1_Abdo(position),"Abdo");
+        return new Exercices (String.valueOf(position), "Abdominaux-Exercice : 1 ", Exo1_Abdo(position),"Abdominaux");
     }
     private static Exercices createExerciceMuscu2(int position) {
         return new Exercices (String.valueOf(position), "Bras-Exercice : 1 ", Exo2_Bras(position),"Bras");

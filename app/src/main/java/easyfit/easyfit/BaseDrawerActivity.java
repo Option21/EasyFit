@@ -27,7 +27,6 @@ import easyfit.easyfit.Calendrier.calendar;
 import easyfit.easyfit.Chronometer.Chrono;
 import easyfit.easyfit.Exercices.ItemListActivity;
 import easyfit.easyfit.Profile.CreationProfile;
-import easyfit.easyfit.ProgramList.ProgramListActivity;
 import easyfit.easyfit.graphique.Graph;
 import easyfit.easyfit.Podometer.Podometer;
 import easyfit.easyfit.Program.program;
