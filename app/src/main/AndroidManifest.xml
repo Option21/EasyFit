@@ -49,10 +49,6 @@
         <activity android:name=".Profile.CreationProfile"
             android:label="EasyFit"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Profile.ProfileView"
             android:label="EasyFit"
@@ -76,6 +72,10 @@
         <activity
             android:name=".Program.program"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Podometer.Podometer"
             android:theme="@style/AppTheme.NoActionBar">

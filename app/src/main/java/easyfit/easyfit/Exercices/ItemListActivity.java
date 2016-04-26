@@ -66,7 +66,28 @@ public class ItemListActivity extends BaseDrawerActivity {
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(mValues.get(position).id);
             holder.mContentView.setText(mValues.get(position).content);
-            holder.imageView.setImageResource(R.mipmap.ic_launcher_final);
+
+            switch (position)
+            {
+                case 0:
+                    holder.imageView.setImageResource(R.mipmap.ic_abdo);
+                    break;
+                case 1:
+                    holder.imageView.setImageResource(R.mipmap.ic_launcher_final);
+                    break;
+                case 2:
+                    holder.imageView.setImageResource(R.mipmap.ic_dos);
+                    break;
+                case 3:
+                    holder.imageView.setImageResource(R.mipmap.ic_jambes);
+                    break;
+                case 4:
+                    holder.imageView.setImageResource(R.mipmap.ic_torse);
+                    break;
+                default:
+                    holder.imageView.setImageResource(R.mipmap.ic_launcher_final);
+                    break;
+            }
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
