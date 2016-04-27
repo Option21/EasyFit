@@ -44,7 +44,6 @@ public class CreationProfile extends AppCompatActivity {
 
         settings.edit().putBoolean("my_first_time", true).commit();
      if (settings.getBoolean("my_first_time", true)) {
-        //if(bdProfile.getProfile(1)!=null){
             settings.edit().putBoolean("my_first_time", false).commit();
             setContentView(R.layout.activity_creation_profile);
 

@@ -17,7 +17,8 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentLeft="false"
         android:visibility="visible"
-        android:id="@+id/linearLayout" >
+        android:id="@+id/linearLayout"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -164,13 +165,23 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="IMC"
+            android:id="@+id/imc"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.19" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MODIFIER"
             android:id="@+id/modifier"
             android:layout_marginLeft="130dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="70dp"
+            android:layout_weight="0.16" />
     </LinearLayout>
 
 </RelativeLayout>

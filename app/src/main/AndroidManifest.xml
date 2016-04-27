@@ -17,6 +17,8 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <receiver android:name=".AlarmReceiver"
+            android:process=":remote" />
         <activity
             android:name=".Exercices.ItemDetailActivity"
             android:label="@string/title_item_detail"

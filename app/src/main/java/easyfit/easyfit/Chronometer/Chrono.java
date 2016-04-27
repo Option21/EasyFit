@@ -27,9 +27,6 @@ public class Chrono extends BaseDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_base_drawer);
-
-        //frame = (RelativeLayout)findViewById(R.id.ChronoLayout);
         getLayoutInflater().inflate(R.layout.activity_chrono, frame);
         Button btn_start = (Button) findViewById(R.id.btn_start);
         Button btn_stop = (Button) findViewById(R.id.btn_stop);
@@ -38,7 +35,6 @@ public class Chrono extends BaseDrawerActivity {
         laview = (TextView) findViewById(R.id.lap_view);
         laview2 = (TextView)findViewById(R.id.lap_view2);
         laview3 = (TextView)findViewById(R.id.lap_view3);
-
 
         assert (btn_start != null && btn_stop != null && btn_reset != null);
 
@@ -149,10 +145,8 @@ public class Chrono extends BaseDrawerActivity {
                 laview3.setText(savedInstanceState.getString("lap3").toString());
             nbLap = savedInstanceState.getInt("nbLap");
 
-
         }
         super.onRestoreInstanceState(savedInstanceState);
     }
-
 }
 

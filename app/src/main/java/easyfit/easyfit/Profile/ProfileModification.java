@@ -33,7 +33,6 @@ public class ProfileModification extends BaseDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_profile_modification);
         getLayoutInflater().inflate(R.layout.activity_profile_modification, frame);
         startLayout = (LinearLayout) findViewById(R.id.startLayoutModif);
         objectifLayout = (LinearLayout) findViewById(R.id.ObjectiveMenuModif);

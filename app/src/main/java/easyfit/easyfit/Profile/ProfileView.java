@@ -22,7 +22,6 @@ public class ProfileView extends BaseDrawerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_profile_view);
         getLayoutInflater().inflate(R.layout.activity_profile_view, frame);
         loadProfile();
         Button validation = (Button) findViewById(R.id.modifier);
@@ -41,14 +40,20 @@ public class ProfileView extends BaseDrawerActivity {
         TextView mail = (TextView) findViewById(R.id.mailEntry);
         TextView taille = (TextView) findViewById(R.id.tailleEntry);
         TextView program = (TextView) findViewById(R.id.programEntry);
-
+        TextView imc = (TextView) findViewById(R.id.imc);
+        assert imc != null;
         name.setText(bdProfile.getProfile(1).getName());
         age.setText(String.valueOf(bdProfile.getProfile(1).getAge()));
         poids.setText(String.valueOf(bdProfile.getProfile(1).getPoids()));
         mail.setText(bdProfile.getProfile(1).getMail());
         taille.setText(String.valueOf(bdProfile.getProfile(1).getTaille()));
 
-
+        float t = Float.parseFloat(taille.getText().toString());
+        float p = Float.parseFloat(poids.getText().toString());
+        assert t != 0;
+        float f =p/(t * t);
+        imc.setTextSize(20);
+        imc.setText("IMC : " + f);
         program.setText(bdProfile.getProfile(1).getEntrainementName());
 
     }

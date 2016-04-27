@@ -1,5 +1,7 @@
 package easyfit.easyfit;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,16 +43,9 @@ public class BaseDrawerActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
-
+        setNotifications();
         AppEventsLogger.activateApp(this);
-        //callbackManager = CallbackManager.Factory.create();
-
-
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
-        //loginButton.setReadPermissions("user_friends");
-
-        //getLoginDetails(loginButton);
-
         shareDialog = new ShareDialog(this);
 
 
@@ -59,16 +54,7 @@ public class BaseDrawerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         frame = (RelativeLayout)findViewById(R.id.relativeframe);
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-*/
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -79,6 +65,13 @@ public class BaseDrawerActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    public void setNotifications()
+    {
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000, pendingIntent);
+    }
 
     @Override
     public void onBackPressed() {
@@ -92,30 +85,19 @@ public class BaseDrawerActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.base_drawer, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
-
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch(id)
         {
@@ -164,7 +146,7 @@ public class BaseDrawerActivity extends AppCompatActivity
                             .setContentUrl(Uri.parse("https://www.easyfit.com/"))
                             .build();
 
-                    shareDialog.show(linkContent);  // Show facebook ShareDialog
+                    shareDialog.show(linkContent);
                 }
                 break;
             default:

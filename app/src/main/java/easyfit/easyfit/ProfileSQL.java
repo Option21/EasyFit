@@ -1,8 +1,5 @@
 package easyfit.easyfit;
 
-/**
- * Created by Bomb-X on 19/04/16.
- */
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -18,21 +15,14 @@ import java.util.List;
 
 public class ProfileSQL extends SQLiteOpenHelper {
 
-    // Database Version
     private static final int DATABASE_VERSION = 1;
-
-    // Database Name
     private static final String DATABASE_NAME = "easyFitDB";
-
     public ProfileSQL(Context context) {
-
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        //db.execSQL("DROP TABLE IF EXISTS profile");
 
         String CREATE_PROFILE_TABLE = "CREATE TABLE profile ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -51,7 +41,6 @@ public class ProfileSQL extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS profile");
         this.onCreate(db);
     }
-    //---------------------------------------------------------------------
 
     private static final String TABLE_PROFILE = "profile";
 
@@ -66,10 +55,7 @@ public class ProfileSQL extends SQLiteOpenHelper {
     private static final String[] COLUMNS = {KEY_ID, KEY_NAME, KEY_AGE, KEY_MAIL, KEY_TAILLE, KEY_POIDS, KEY_PROGRAM};
 
     public void addProfile(Profile profile) {
-      //  Log.d("addPRofile", book.toString());
-        // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
-        // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
 
         values.put(KEY_NAME, profile.getName());
@@ -83,37 +69,30 @@ public class ProfileSQL extends SQLiteOpenHelper {
         else
             values.put(KEY_PROGRAM, " ");
 
-        // 3. insert
-        db.insert(TABLE_PROFILE, // table
-                null, //nullColumnHack
-                values); // key/value -> keys = column names/ values = column values
+        db.insert(TABLE_PROFILE,
+                null,
+                values);
 
-        // 4. close
         db.close();
     }
 
     public Profile getProfile(int id) {
 
-        // 1. get reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
-
-        // 2. build query
         Cursor cursor =
-                db.query(TABLE_PROFILE, // a. table
-                        COLUMNS, // b. column names
-                        " id = ?", // c. selections
-                        new String[]{String.valueOf(id)}, // d. selections args
-                        null, // e. group by
-                        null, // f. having
-                        null, // g. order by
-                        null); // h. limit
+                db.query(TABLE_PROFILE,
+                        COLUMNS,
+                        " id = ?",
+                        new String[]{String.valueOf(id)},
+                        null,
+                        null,
+                        null,
+                        null);
 
-        // 3. if we got results get the first one
         if (cursor != null)
             cursor.moveToFirst();
 
         Profile profile = new Profile();
-       // .setId(Integer.parseInt(cursor.getString(0)));
         profile.setName(cursor.getString(1));
         profile.setAge(Integer.parseInt(cursor.getString(2)));
         profile.setMail(cursor.getString(3));
@@ -126,10 +105,7 @@ public class ProfileSQL extends SQLiteOpenHelper {
 
     public int updateProfile(Profile profile) {
 
-        // 1. get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
-
-        // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, profile.getName());
         values.put(KEY_AGE, profile.getAge());
@@ -141,13 +117,11 @@ public class ProfileSQL extends SQLiteOpenHelper {
         else
             values.put(KEY_PROGRAM, " ");
 
-        // 3. updating row
-        int i = db.update(TABLE_PROFILE, //table
-                values, // column/value
-                KEY_ID + " = ?", // selections
-                new String[]{String.valueOf(1)}); //selection args
+        int i = db.update(TABLE_PROFILE,
+                values,
+                KEY_ID + " = ?",
+                new String[]{String.valueOf(1)});
 
-        // 4. close
         db.close();
         return i;
     }
