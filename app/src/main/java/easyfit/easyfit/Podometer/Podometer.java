@@ -70,7 +70,7 @@ public class Podometer extends easyfit.easyfit.BaseDrawerActivity implements Sen
 
     private double pasToCalories(double value)
     {
-        return value * 0.49 ;
+        return value * 0.05 ;
     }
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {

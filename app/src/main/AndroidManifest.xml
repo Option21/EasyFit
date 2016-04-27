@@ -27,21 +27,6 @@
                 android:value=".Exercices.ItemListActivity" />
         </activity>
         <activity
-            android:name=".ProgramList.ProgramListActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".ProgramList.ProgramDetailActivity"
-            android:label="@string/title_item_detail"
-            android:parentActivityName=".Exercices.ItemListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Exercices.ItemListActivity" />
-        </activity>
-
-        <activity
             android:name=".BaseDrawerActivity"
             android:label="@string/title_activity_base_drawer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -49,6 +34,10 @@
         <activity android:name=".Profile.CreationProfile"
             android:label="EasyFit"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Profile.ProfileView"
             android:label="EasyFit"
@@ -72,10 +61,7 @@
         <activity
             android:name=".Program.program"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".Podometer.Podometer"
             android:theme="@style/AppTheme.NoActionBar">

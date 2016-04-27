@@ -40,14 +40,12 @@ public class HistoriqueExerciceSQL extends SQLiteOpenHelper {
 
         //db.execSQL("DROP TABLE IF EXISTS HistoriqueExercice");
 
-        // SQL statement to create book table
         String CREATE_HISTORIQUE_TABLE = "CREATE TABLE HistoriqueExercice ( " +
                 "idHistorique INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "idExercice INTEGER, " +
                 "dateSession DATE, " +
                 "serieDuree FLOAT )";
 
-        // create books table
         db.execSQL(CREATE_HISTORIQUE_TABLE);
     }
 
@@ -57,13 +55,6 @@ public class HistoriqueExerciceSQL extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
-    //---------------------------------------------------------------------
-
-    /**
-     * CRUD operations (create "add", read "get", update, delete) book + get all books + delete all books
-     */
-
-    // Books table name
     private static final String TABLE_HISTORIQUE_EXERCICE = "HistoriqueExercice";
 
     // Books Table Columns names
@@ -181,7 +172,6 @@ public class HistoriqueExerciceSQL extends SQLiteOpenHelper {
 
         Log.d("deleteHistorique", "historiqueDeleted");
     }
-
 
     public static class HistoriqueExercice {
 

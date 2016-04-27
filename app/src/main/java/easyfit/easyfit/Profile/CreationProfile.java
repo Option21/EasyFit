@@ -39,9 +39,6 @@ public class CreationProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
         final String PREFS_NAME = "MyPrefsFile";
         settings = getSharedPreferences(PREFS_NAME, 0);
 
